@@ -1,8 +1,16 @@
 <script>
     import Workout from './Workout.svelte';
+    import { createEventDispatcher } from 'svelte';
+    import { fade } from 'svelte/transition';
+
     export let name;
     export let description;
     export let workouts;
+
+    const dispatch = createEventDispatcher();
+    function addStatus(){
+        dispatch('addStatus');
+    }
 </script>
 
 <style>
@@ -13,19 +21,25 @@
     }
     div {
 		text-align: center;
-		background: blue;
+		background: #424242d8;
 		width: 20vw;
 		height: 50vh;
 		margin: 0 1vw;
 		border-radius: 15px;
-	}
+    }
+    .pepega {
+        overflow-y: auto;   
+    }
 </style>
-<div>
+<div transition:fade>
+    <button on:click={addStatus}>Add new</button>
 	<h1>{name}</h1>
 	<h3>{description}</h3>
-    <ul>
-        {#each workouts as workout}
-            <Workout {...workout} />
-        {/each}
-    </ul>
+    <div class="pepega">
+        <ul>
+            {#each workouts as workout}
+                <Workout {...workout} />
+            {/each}
+        </ul>
+    </div>
 </div>

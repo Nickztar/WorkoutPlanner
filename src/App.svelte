@@ -3,23 +3,17 @@
 </script>
 
 <style>
-	* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	}
-
-	.days {
-		display: flex;
-		justify-content: center;
-		margin-top: 20vh;
-		color: aliceblue;
-	}
+	div {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+	}	
 </style>
 
-<ul class="days">
-	<Week/>
-</ul>
+<div>
+	<Week />
+</div>
 
 
 
